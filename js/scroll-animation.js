@@ -1,4 +1,5 @@
-import { header_intro, header_hide, header_background_hide, mobile_version } from "./app.js"
+import { mobile_version  } from "./onload.js"
+import { header_intro, header_hide, header_background_hide } from "./app.js"
 
 const image = document.querySelector('.animation')
 let imageInner = document.querySelector('.animation .desktop')

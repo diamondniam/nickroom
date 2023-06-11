@@ -1,9 +1,4 @@
-let mobile_version = false
-
-if (getComputedStyle(document.querySelector('.poster')).getPropertyValue('display') == 'none') {
-  mobile_version = true
-}
-
+import { mobile_version } from "./onload.js"
 
 const header = document.querySelector('.header')
 const header_elements = header.querySelectorAll('div')
