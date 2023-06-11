@@ -119,6 +119,6 @@ if (mobile_version) {
   }
 } else {
   for (let i = 1; i <= filesCount; i++) {
-    preload_image(`/nickroom/src/header/animation/mobile/header_animation_frame_${i}.png`)
+    preload_image(`/nickroom/src/header/animation/header_animation_frame_${i}.png`)
   }
 }
