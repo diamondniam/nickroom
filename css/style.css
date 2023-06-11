@@ -751,7 +751,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/src/header/header_background_2.png");
+  background: url("../src/header/header_background_2.png");
 }
 .anti-portrait img {
   opacity: 0;
@@ -784,10 +784,6 @@ html {
   }
   .anti-portrait img {
     opacity: 1;
-  }
-  body {
-    overflow: hidden;
-    height: 100%;
   }
   .header, .poster, .streaming {
     opacity: 0;
