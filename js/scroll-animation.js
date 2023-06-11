@@ -65,12 +65,23 @@ function scrollPage() {
     }
     if (document.querySelector('.poster-mobile').getBoundingClientRect().y - screen.height < 0) {
       header_background_hide()
+      header_background_hidden = false
+    } 
+    else if (document.querySelector('.poster-mobile').getBoundingClientRect().y - screen.height < 200 &&
+    document.querySelector('.poster-mobile').getBoundingClientRect().y - screen.height > 0 &&
+    !header_background_hidden) {
+      header_intro()
       header_background_hidden = true
     }
   }
 
-  if (frameNumber >= filesCount) {
+  if (!mobile_version && frameNumber >= filesCount) {
     header_intro()
+  }
+
+  if (mobile_version && frameNumber == filesCount && !header_background_hidden) {
+    header_intro()
+    header_background_hidden = true
   }
 
   if (!mobile_version && frameNumber < 33) {
@@ -78,6 +89,7 @@ function scrollPage() {
   } else if (mobile_version && frameNumber < 23) {
     header_hide()
     header_background_hide()
+    header_background_hidden = false
   }
 
   window.requestAnimationFrame(scrollPage)
