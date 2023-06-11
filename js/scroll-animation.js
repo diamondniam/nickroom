@@ -111,7 +111,7 @@ function preload_image(im_url) {
 
 if (mobile_version) {
   for (let i = 1; i <= filesCount; i++) {
-    preload_image(`/src/header/animation/mobile/header_mobile_animation_frame_${i}.png`)
+    preload_image(`/nickroom/src/header/animation/mobile/header_mobile_animation_frame_${i}.png`)
   }
   for (let i = 1; i <= 3; i++) {
     preload_image(`/nickroom/src/mobile/poster_mobile_circle_${i}.png`)
@@ -119,6 +119,6 @@ if (mobile_version) {
   }
 } else {
   for (let i = 1; i <= filesCount; i++) {
-    preload_image(`/src/header/animation/mobile/header_animation_frame_${i}.png`)
+    preload_image(`/nickroom/src/header/animation/mobile/header_animation_frame_${i}.png`)
   }
 }
