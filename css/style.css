@@ -590,6 +590,39 @@ html {
 .streaming .inner .platforms img {
   width: 400px;
 }
+.streaming .inner .availability {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.7s, visibility 0.7s;
+  font-size: 55px;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.254);
+  letter-spacing: 1px;
+  color: #f9c49d;
+  position: absolute;
+  font-family: "Sans";
+  transform: rotate(60deg);
+  animation: availability 1s steps(2) infinite;
+}
+@keyframes availability {
+  0% {
+    transform: rotate(60deg);
+  }
+  33% {
+    transform: rotate(61deg);
+  }
+  66% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(59deg);
+  }
+}
+.streaming .inner .show {
+  visibility: visible;
+  opacity: 1;
+}
 .streaming .footer {
   width: 100%;
   position: absolute;
@@ -1174,6 +1207,9 @@ html {
   .streaming .inner .platforms .title img {
     width: 100%;
   }
+  .streaming .inner .availability {
+    font-size: 80px;
+  }
   .streaming .background {
     width: 100%;
     height: 100%;
@@ -1241,6 +1277,12 @@ html {
   }
   .streaming .inner .layer .mobile {
     display: none;
+  }
+  .streaming .inner .availability {
+    font-size: 120px;
+    text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.254);
+    transform: none;
+    animation: none;
   }
   .streaming .background {
     width: auto;

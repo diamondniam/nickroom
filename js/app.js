@@ -88,7 +88,7 @@ function header_hide() {
 
 const streaming = document.querySelector('.streaming')
 const platforms = streaming.querySelector('.platforms')
-const links = platforms.querySelectorAll('a')
+const links = platforms.querySelectorAll('.a')
 
 let streaming_position
 
@@ -293,6 +293,14 @@ let poster_mobile_ada = {
   description: ada.querySelector('p').innerHTML,
   element: poster_mobile.querySelector('.ada')
 }
+
+const availability = document.querySelector('.availability')
+
+links.forEach(link => {
+  link.onclick = () => {
+    availability.classList.add('show')
+  }
+})
 
 export { 
   poster, world, selections, poster_mobile_ada, poster_mobile_krasota, poster_mobile_rodeo, poster_mobile_israeli, poster_mobile_mbm, poster_mobile_circles, poster_mobile, poster_information, posters_mobile,
