@@ -1,4 +1,4 @@
-import { poster, world, selections, poster_mobile_ada, poster_mobile_krasota, poster_mobile_rodeo, poster_mobile_israeli, poster_mobile_mbm, poster_mobile_circles, poster_mobile, poster_information, posters_mobile } from "./app.js"
+import { poster, world, selections, poster_mobile_ada, poster_mobile_krasota, poster_mobile_rodeo, poster_mobile_israeli, poster_mobile_mbm, poster_mobile_circles, poster_mobile, poster_information, posters_mobile, header_title, player_image } from "./app.js"
 
 import { mobile_version } from "./onload.js"
 

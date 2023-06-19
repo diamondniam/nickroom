@@ -343,30 +343,32 @@ let
     player_text_animation,
     player_text_width = 0
 
-player_image.onmouseover = () => {
-  clearInterval(player_text_animation)
-  player_text.style.opacity = '1'
-  player_text.style.visibility = 'visible'
-  player_text_animation = setInterval(() => {
-    player_text_width+=15
-    if (player_text_width >= 160) {
-      clearInterval(player_text_animation)
-    }
-    player_text.style.width = player_text_width + 'px'
-  }, 100)
-}
-
-player_image.onmouseout = () => {
-  clearInterval(player_text_animation)
-  player_text_animation = setInterval(() => {
-    player_text_width-=15
-    if (player_text_width <= 0) {
-      player_text.style.opacity = '0'
-      player_text.style.visibility = 'hidden'
-      clearInterval(player_text_animation)
-    }
-    player_text.style.width = player_text_width + 'px'
-  }, 80)
+if (!mobile_version) {
+  player_image.onmouseover = () => {
+    clearInterval(player_text_animation)
+    player_text.style.opacity = '1'
+    player_text.style.visibility = 'visible'
+    player_text_animation = setInterval(() => {
+      player_text_width+=15
+      if (player_text_width >= 160) {
+        clearInterval(player_text_animation)
+      }
+      player_text.style.width = player_text_width + 'px'
+    }, 100)
+  }
+  
+  player_image.onmouseout = () => {
+    clearInterval(player_text_animation)
+    player_text_animation = setInterval(() => {
+      player_text_width-=15
+      if (player_text_width <= 0) {
+        player_text.style.opacity = '0'
+        player_text.style.visibility = 'hidden'
+        clearInterval(player_text_animation)
+      }
+      player_text.style.width = player_text_width + 'px'
+    }, 80)
+  }
 }
 
 let infromation_started = false
