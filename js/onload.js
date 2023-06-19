@@ -5,7 +5,6 @@ window.addEventListener('load', () => {
   const body = document.querySelector('body')
 
   loader.classList.add('hide')
-  body.classList.add('scroll-lock')
 
   loader.addEventListener('transitionend', () => {
     body.style.height = 'auto'

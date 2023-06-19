@@ -2,39 +2,6 @@ import { poster, world, selections, poster_mobile_ada, poster_mobile_krasota, po
 
 import { mobile_version } from "./onload.js"
 
-let infromation_started = false
-
-window.onscroll = () => {
-  poster_information.style.display = 'block'
-
-  if (!mobile_version) {
-    if (poster.getBoundingClientRect().y < 200) {
-      poster.style.filter = 'brightness(70%)'
-      poster.style.transition = 'filter 1s'
-      world.style.filter = 'brightness(70%)'
-      world.style.transition = 'filter 1s'
-      poster_information.style.opacity = '1'
-      poster_information.style.visibility = 'visible'
-      selections.forEach(selection => {
-        selection.style.opacity = '1'
-        selection.style.visibility = 'visible'
-      })
-      infromation_started = true
-    }
-    if (poster.getBoundingClientRect().y < -200 || poster.getBoundingClientRect().y > 200) {
-      poster_information.style.visibility = 'hidden'
-      poster_information.style.opacity = '0'
-      poster.style.filter = 'brightness(1)'
-      world.style.filter = 'brightness(1)'
-      streaming.style.filter = 'brightness(1)'
-      selections.forEach(selection => {
-        selection.style.opacity = '0'
-        selection.style.visibility = 'hidden'
-      })
-    }
-  }
-}
-
 poster_mobile_mbm.element.querySelector('.title').innerHTML = poster_mobile_mbm.title
 poster_mobile_mbm.element.querySelector('.description').innerHTML = poster_mobile_mbm.description
 poster_mobile_rodeo.element.querySelector('.title').innerHTML = poster_mobile_rodeo.title
@@ -266,6 +233,14 @@ if (mobile_version) {
       }, 5000);
     } else {
       poster_mobile.style.opacity = '0'
+    }
+
+    if (header_title.getBoundingClientRect().y - 200 < 0) {
+      player_image.style.visibility = 'hidden'
+      player_image.style.opacity = '0'
+    } else {
+      player_image.style.visibility = 'visible'
+      player_image.style.opacity = '1'
     }
   }
 }

@@ -1,5 +1,7 @@
 import { mobile_version } from "./onload.js"
 
+const body = document.querySelector('body')
+
 const header = document.querySelector('.header')
 const header_elements = header.querySelectorAll('div')
 const header_title = header.querySelector('.title')
@@ -302,8 +304,118 @@ links.forEach(link => {
   }
 })
 
+var theme_audio = new Audio('/sound/web_theme.mp3')
+theme_audio.loop = true
+
+const 
+    player = document.querySelector('.player'),
+    player_image = player.querySelector('img'),
+    player_text = player.querySelector('.text')
+
+let player_animation,
+    player_animation_cycle = 1,
+    player_animation_playing = false
+
+player_image.onclick = () => {
+  if (!player_animation_playing) {
+    theme_audio.play()
+
+    clearInterval(player_animation)
+    player_animation = setInterval(() => {
+      player_animation_cycle++
+      if (player_animation_cycle == 4) { clearInterval(player_animation) }
+      player_image.src = `/src/player/player_frame_${player_animation_cycle}.png`
+    }, 200)
+
+    player_animation_playing = true
+  } else {
+    theme_audio.pause()
+    theme_audio.currentTime = 0
+
+    clearInterval(player_animation)
+    player_animation = setInterval(() => {
+      player_animation_cycle--
+      if (player_animation_cycle == 1) { clearInterval(player_animation) }
+      player_image.src = `/src/player/player_frame_${player_animation_cycle}.png`
+    }, 200)
+
+    player_animation_playing = false
+  }
+}
+
+let 
+    player_text_animation,
+    player_text_width = 0
+
+player_image.onmouseover = () => {
+  clearInterval(player_text_animation)
+  player_text.style.opacity = '1'
+  player_text.style.visibility = 'visible'
+  player_text_animation = setInterval(() => {
+    player_text_width+=15
+    if (player_text_width >= 160) {
+      clearInterval(player_text_animation)
+    }
+    player_text.style.width = player_text_width + 'px'
+  }, 100)
+}
+
+player_image.onmouseout = () => {
+  clearInterval(player_text_animation)
+  player_text_animation = setInterval(() => {
+    player_text_width-=15
+    if (player_text_width <= 0) {
+      player_text.style.opacity = '0'
+      player_text.style.visibility = 'hidden'
+      clearInterval(player_text_animation)
+    }
+    player_text.style.width = player_text_width + 'px'
+  }, 80)
+}
+
+let infromation_started = false
+
+if (!mobile_version) {
+  window.onscroll = () => {
+    poster_information.style.display = 'block'
+  
+    if (poster.getBoundingClientRect().y < 200) {
+      poster.style.filter = 'brightness(70%)'
+      poster.style.transition = 'filter 1s'
+      world.style.filter = 'brightness(70%)'
+      world.style.transition = 'filter 1s'
+      poster_information.style.opacity = '1'
+      poster_information.style.visibility = 'visible'
+      selections.forEach(selection => {
+        selection.style.opacity = '1'
+        selection.style.visibility = 'visible'
+      })
+      infromation_started = true
+    }
+    if (poster.getBoundingClientRect().y < -200 || poster.getBoundingClientRect().y > 200) {
+      poster_information.style.visibility = 'hidden'
+      poster_information.style.opacity = '0'
+      poster.style.filter = 'brightness(1)'
+      world.style.filter = 'brightness(1)'
+      streaming.style.filter = 'brightness(1)'
+      selections.forEach(selection => {
+        selection.style.opacity = '0'
+        selection.style.visibility = 'hidden'
+      })
+    }
+
+    if (header.getBoundingClientRect().y + (header.getBoundingClientRect().height - 500) < 0) {
+      player_image.style.visibility = 'hidden'
+      player_image.style.opacity = '0'
+    } else {
+      player_image.style.visibility = 'visible'
+      player_image.style.opacity = '1'
+    }
+  }
+}
+
 export { 
-  poster, world, selections, poster_mobile_ada, poster_mobile_krasota, poster_mobile_rodeo, poster_mobile_israeli, poster_mobile_mbm, poster_mobile_circles, poster_mobile, poster_information, posters_mobile,
+  poster, world, selections, poster_mobile_ada, poster_mobile_krasota, poster_mobile_rodeo, poster_mobile_israeli, poster_mobile_mbm, poster_mobile_circles, poster_mobile, poster_information, posters_mobile, header_title, player_image,
 
   header_hide, header_background_hide, header_background_show, header_intro, scrollOff, scrollOn, mobile_version 
 }
