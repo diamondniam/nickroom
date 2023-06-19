@@ -304,7 +304,7 @@ links.forEach(link => {
   }
 })
 
-var theme_audio = new Audio('/sound/web_theme.mp3')
+var theme_audio = new Audio('/nickroom/sound/web_theme.mp3')
 theme_audio.loop = true
 
 const 
@@ -324,7 +324,7 @@ player_image.onclick = () => {
     player_animation = setInterval(() => {
       player_animation_cycle++
       if (player_animation_cycle == 4) { clearInterval(player_animation) }
-      player_image.src = `/src/player/player_frame_${player_animation_cycle}.png`
+      player_image.src = `/nickroom/src/player/player_frame_${player_animation_cycle}.png`
     }, 200)
 
     player_animation_playing = true
@@ -336,7 +336,7 @@ player_image.onclick = () => {
     player_animation = setInterval(() => {
       player_animation_cycle--
       if (player_animation_cycle == 1) { clearInterval(player_animation) }
-      player_image.src = `/src/player/player_frame_${player_animation_cycle}.png`
+      player_image.src = `/nickroom/src/player/player_frame_${player_animation_cycle}.png`
     }, 200)
 
     player_animation_playing = false
