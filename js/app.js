@@ -133,17 +133,13 @@ const krasota = poster.querySelector('.krasota')
 const marks = [poster.querySelector('.krasota'), poster.querySelector('.ada'), poster.querySelector('.mbm'), poster.querySelector('.mouse'), poster.querySelector('.dymka'), poster.querySelector('.israeli'), poster.querySelector('.rodeo')]
 
 function scrollOff() {
-  let scrollY = window.scrollY
-  window.onscroll = () => {
-    scrollTo({
-      top: scrollY,
-      behavior: 'instant'
-    })
-  }
+  body.style.height = '100%'
+  body.style.overflow = 'hidden'
 }
 
 function scrollOn() {
-  window.onscroll = () => { }
+  body.style.height = 'auto'
+  body.style.overflow = 'auto'
 }
 
 const poster_background = poster.querySelector('.background').querySelector('img')
@@ -162,11 +158,11 @@ if (!mobile_version) {
     mark.onclick = () => {
       scrollOff()
   
-      poster.style.filter = 'brightness(70%) blur(3px)'
+      poster.style.filter = 'brightness(70%)'
       poster.style.transition = 'filter 1s'
-      world.style.filter = 'brightness(70%) blur(3px)'
+      world.style.filter = 'brightness(70%)'
       world.style.transition = 'filter 1s'
-      streaming.style.filter = 'brightness(70%) blur(3px)'
+      streaming.style.filter = 'brightness(70%)'
       streaming.style.transition = 'filter 1s'
   
       noise.classList.add('active')
