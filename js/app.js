@@ -292,14 +292,6 @@ let poster_mobile_ada = {
   element: poster_mobile.querySelector('.ada')
 }
 
-const availability = document.querySelector('.availability')
-
-links.forEach(link => {
-  link.onclick = () => {
-    availability.classList.add('show')
-  }
-})
-
 var theme_audio = new Audio('/nickroom/sound/web_theme.mp3')
 theme_audio.loop = true
 
