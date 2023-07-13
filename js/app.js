@@ -90,7 +90,7 @@ function header_hide() {
 
 const streaming = document.querySelector('.streaming')
 const platforms = streaming.querySelector('.platforms')
-const links = platforms.querySelectorAll('.a')
+const links = platforms.querySelectorAll('a')
 
 let streaming_position
 

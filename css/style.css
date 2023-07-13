@@ -54,15 +54,16 @@ html {
   background: #f1802d;
 }
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
   position: absolute;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #b35a0c;
+  background-color: #b1591e;
   border-radius: 5px;
+  border: 1px solid #e58b2c;
 }
 ::-webkit-scrollbar-track {
-  background-color: #713806;
+  background-color: #e58b2c;
 }
 .player {
   font-family: "Sans";
